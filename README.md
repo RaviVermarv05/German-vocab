@@ -14,12 +14,7 @@ Supports English-to-German and German-to-English modes, audio output, word searc
 - 📖 Word list viewing by chapter (based on Netzwek B1 - Glossary)
 - 📦 Modular structure using external `word_list` and `speech_output` modules
 
-## 🛠️ Requirements
 
-- Python 3.x  
-- Optionally: audio playback setup (based on your `speech_output.py`)
-
-
-Make sure all required files (`word_list.py`, `speech_output.py`, etc.) are in the same folder.
+Make sure all required files (`word_list.py`, `speech_output.py`) are in the same folder.
 
 
