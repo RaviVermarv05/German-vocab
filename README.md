@@ -18,3 +18,4 @@ Supports English-to-German and German-to-English modes, audio output, word searc
 Make sure all required files (`word_list.py`, `speech_output.py`) are in the same folder.
 
 
+![image alt](https://github.com/Mankind001/German-vocab/blob/5595d9d0eccbb7bbf7d0597c1d401bc45116e608/Screenshot%202025-06-27%20at%2001.14.04.png)
