@@ -9,7 +9,7 @@ Supports English-to-German and German-to-English modes, audio output, word searc
 
 - ✅ English → German and German → English quiz modes
 - 🎯 Progress tracking with success rate and weak word review
-- 🔊 Audio support using pre-recorded files
+- 🔊 Audio support including microphone resume and stop controls
 - 🔍 Search functionality for quick lookups
 - 📖 Word list viewing by chapter (based on Netzwek B1 - Glossary)
 - 📦 Modular structure using external `word_list` and `speech_output` modules
