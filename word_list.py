@@ -403,14 +403,14 @@ chapter_ten = {
 
     ("border control",): ["die Grenzkontrolle"],
     ("national",): ["national", "staatlich"],
-    ("thematic",): ["thematisch"],
-    ("lecture",): ["der Vortrag", "die Präsentation", "das Referat"],
-    ("to keep", "to preserve"): ["bewahren", "erhalten", "aufrechterhalten", "konservieren"],
+
+    ("lecture",): ["der Vortrag", "das Referat"],
+    ("to preserve",): ["bewahren", "erhalten", "konservieren"],
     ("EU citizen",): ["der EU-Bürger", "der EU-Staatsbürger"],
-    ("to build up", "to construct"): ["aufbauen", "errichten", "konstruieren", "gründen", "einrichten"],
+    ("to build up", "to construct"): ["aufbauen", "errichten", "konstruieren", "gründen", "einrichten", "bauen"],
     ("structure",): ["die Struktur", "der Aufbau"],
     ("as follows",): ["folgendermaßen", "wie folgt", "nachstehend"],
-    ("structured",): ["gegliedert", "strukturiert"]
+
 }
 
 
