@@ -403,7 +403,6 @@ chapter_ten = {
 
     ("border control",): ["die Grenzkontrolle"],
     ("national",): ["national", "staatlich"],
-
     ("lecture",): ["der Vortrag", "das Referat"],
     ("to preserve",): ["bewahren", "erhalten", "konservieren"],
     ("EU citizen",): ["der EU-Bürger", "der EU-Staatsbürger"],
