@@ -103,16 +103,25 @@ def quiz_eng_ger(guessed,german_words,display_eng,wrong_guesses):
                     practice_words.append(g)
                 practice_words.append(' ')
                 break
-def show_word_list(chapters,chapter_number):
+def review(chapters,chapter_number):
 
     s_no = 0
     print("\n")
 
     for i in chapters[int(chapter_number)]:
         s_no += 1
+        capitalized_nouns=[]
+
 
         english = ", ".join(i)
-        german = ", ".join(chapters[int(chapter_number)][i])
+        german_list=chapters[int(chapter_number)][i]
+        for i in german_list:
+            if i[0:4].lower() in ['der ','die ','das ']:
+                capitalized_nouns.append(i[0:3].lower().strip() +i[3]+i[4].capitalize()+i[5:].lower())
+            else:
+                capitalized_nouns=german_list
+
+        german = ", ".join(capitalized_nouns)
         print(f"{s_no}. {german} -⟶ {english}")
         if s_no % 10 == 0:
             print("\n")
@@ -131,7 +140,7 @@ def search_word(raw_vocab):
                         print(f"* {k}")
                     print('\n')
             for m in raw_vocab[i]:
-                if search == m.lower().strip() or (search == m[4:].lower().strip() and m[0:3].lower().strip() in ['der','die','das']):
+                if search == m.lower().strip() or (search == m[4:].lower().strip() and m[0:4].lower() in ['der ','die ','das ']):
 
                     for l in i:
                         found=True
@@ -244,7 +253,7 @@ def logic():
     elif mode==3:
         search_word(raw_vocab)
     elif mode==4:
-        show_word_list(chapters,chapter_number)
+        review(chapters,chapter_number)
     elif mode==5:
         audio_files_prog(raw_vocab)
 

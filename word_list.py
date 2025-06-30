@@ -115,16 +115,17 @@ chapter_twelve = {
 
 }
 chapter_eleven = {
-    ("waste", "garbage"): ["der Abfall", "der Müll"],
+    ("waste", "garbage"): ["der abfall", "der müll"],
     ("exhaust",): ["das Abgas"],
-    ("operation", "company"): ["der Betrieb", "die Firma", "das Unternehmen"],
-    ("dirt", "dust", "stain"): ["der Dreck", "der Staub", "der Fleck", "der Schmutz"],
+    ("organization", "company"): ["der Betrieb", "die Firma", "das Unternehmen", "die organization"],
+    ("dirt", "dust", "stain"): ["der dreck", "der Staub", "der Fleck", "der Schmutz"],
     ("roadway",): ["die Fahrbahn"],
     ("automobile",): ["das Fahrzeug"],
     ("pedestrian zone",): ["die Fußgängerzone"],
     ("area", "territory", "region"): ["das Gebiet", "die Gegend", "der Landstrich", "die Region"],
     ("sidewalk",): ["der Gehsteig"],
     ("speed", "velocity"): ["die Geschwindigkeit", "das Tempo"],
+
     ("noise",): ["der Lärm", "das Geräusch", "die Störung"],
     ("edge", "outskirts"): ["der Rand"],
     ("display window",): ["das Schaufenster"],
@@ -135,11 +136,11 @@ chapter_eleven = {
     ("shopping street",): ["die Einkaufsstraße"],
     ("to concern",): ["angehen"],
     ("workweek",): ["die Arbeitswoche"],
+
     ("constantly", "continuous"): ["dauernd"],
     ("interculturally", "intercultural"): ["interkulturell"],
     ("no more", "never again"): ["nie mehr","nicht mehr"],
     ("to agree",): ["sich einigen", "zustimmen", "recht geben"],
-
     ("shopping",): ["das Shopping","der Einkauf"],
     ("city person",): ["der Stadtmensch", "der Stadttyp"],
     ("student life",): ["das Studentenleben"],
@@ -149,7 +150,7 @@ chapter_eleven = {
 
     ("bakery",): ["die Backstube"],
     ("construction yard",): ["der Bauhof"],
-    ("work", "service"): ["der Dienst"],
+    ("work", "service"): ["der Dienst","die dienstleistung","der service"],
     ("to be in service",): ["im Dienst sein"],
     ("morning shift",): ["die Frühschicht"],
     ("to go in",): ["hineingehen", "reingehen"],
@@ -168,6 +169,7 @@ chapter_eleven = {
     ("night shift",): ["der Nachtdienst"],
     ("to leave open",): ["offen lassen"],
     ("usual", "common"): ["üblich"],
+
     ("social worker",): ["der Sozialarbeiter"],
     ("to happen", "to occur"): ["geschehen", "vorkommen", "passieren", "stattfinden"],
     ("worth living",): ["lebenswert"],
@@ -189,6 +191,7 @@ chapter_eleven = {
     ("front",): ["vordere"],
     ("city ranking",): ["das Städteranking"],
     ("recreational opportunity",): ["die Freizeitmöglichkeit"],
+
     ("salary level",): ["das Gehaltsniveau"],
     ("topic","theme"): ["der Themenbereich"],
     ("subtopic",): ["das Unterthema"],
@@ -199,63 +202,50 @@ chapter_eleven = {
     ("interested person",): ["der Interessierte", "die Interessierte"],
     ("to stop",): ["anhalten", "stoppen", "aufhalten"],
     ("homeless person",): ["der Obdachlose", "die Obdachlose", "die obdachlose Person"],
-    ("change of shifts",): ["der Schichtwechsel","der Dienstwechsel"],
 
+    # ("change of shifts",): ["der Schichtwechsel","der Dienstwechsel"],
+    # ("context",): ["der Zusammenhang","der Kontext"],
+    # ("indeed",): ["allerdings", "zwar", "tatsächlich","in der Tat"],
+    # ("colognian",): ["Kölsch"],
+    # ("opening hours",): ["die Öffnungszeiten"],
+    # ("holiday",): ["der Feiertag","der Urlaub"],
+    # ("idea",): ["die Ahnung","die Idee"],
+    # ("to smile at",): ["anlächeln"],
+    # ("attraction",): ["die Attraktion"],
+    # ("booth", "kiosk"): ["das Büdchen", "die Bude","der Kiosk"],
 
-    ("context",): ["der Zusammenhang","der Kontext"],
-    ("indeed",): ["allerdings", "zwar", "tatsächlich","in der Tat"],
+    # ("chips",): ["die Chips"],
+    # ("curry",): ["das Currygewürz"],
+    # ("dialect",): ["der Dialekt","die Mundart"],
+    # ("floor", "story", "level"): ["die Etage", "das Stockwerk", "der Stock"],
+    # ("to arrest",): ["festnehmen","verhaften"],
+    # ("escape",): ["die Flucht","das Entkommen"],
+    # ("to race down",): ["hinunterrasen"],
+    # ("chicken meat",): ["das Hühnerfleisch"],
+    # ("to rumble",): ["knurren"],
+    # ("crime story", "crime film"): ["der Krimi"],
 
-    # Typisch Kölsch - 13a
-    ("colognian",): ["Kölsch"],
-    ("opening hours",): ["die Öffnungszeiten"],
+    # ("shop",): ["der Laden"],
+    # ("long ago",): ["längst","vor langer Zeit"],
+    # ("stomach",): ["der Magen","der Bauch"],
+    # ("sandwich",): ["der Sandwich"],
+    # ("city guide",): ["der Stadtführer"],
+    # ("local pub",): ["die Stammkneipe"],
+    # ("offender", "culprit"): ["der Täter"],
+    # ("dead person",): ["der Tote"],
+    # ("to be over",): ["um sein","vorbei sein","zu Ende sein" ],
+    # ("suspect",): ["der Verdächtige"],
 
-    # Typisch Kölsch - 13b
-    ("holiday",): ["der Feiertag","der Urlaub"],
-
-    # General Vocabulary
-    ("idea",): ["die Ahnung","die Idee"],
-    ("to smile at",): ["anlächeln"],
-    ("attraction",): ["die Attraktion"],
-    ("booth", "kiosk"): ["das Büdchen", "die Bude","der Kiosk"],
-
-    ("chips",): ["die Chips"],
-    ("curry",): ["das Currygewürz"],
-    ("dialect",): ["der Dialekt","die Mundart"],
-    ("floor", "story", "level"): ["die Etage", "das Stockwerk", "der Stock"],
-
-    ("to arrest",): ["festnehmen","verhaften"],
-    ("escape",): ["die Flucht","das Entkommen"],
-    ("to race down",): ["hinunterrasen"],
-    ("chicken meat",): ["das Hühnerfleisch"],
-    ("to rumble",): ["knurren"],
-    ("crime story", "crime film"): ["der Krimi"],
-    ("shop",): ["der Laden"],
-    ("long ago",): ["längst","vor langer Zeit"],
-    ("stomach",): ["der Magen","der Bauch"],
-    ("sandwich",): ["der Sandwich"],
-    ("city guide",): ["der Stadtführer"],
-    ("local pub",): ["die Stammkneipe"],
-    ("offender", "culprit"): ["der Täter"],
-    ("dead person",): ["der Tote"],
-    ("to be over",): ["um sein","vorbei sein","zu Ende sein" ],
-    ("suspect",): ["der Verdächtige"],
-    ("sales booth",): ["der Verkaufsstand"],
-    ("to question", "to examine"): ["vernehmen","untersuchen", "überprüfen","nachprüfen"],
-    ("witness",): ["der Zeuge"],
-
-    # Meine Stadt - 15a
-    ("free activity",): ["die Freizeitaktivität"],
-    ("tourism",): ["der Tourismus"],
-
-    # Meine Stadt - 15b
-    ("friendly",): ["freundlich"],
-    ("honored",): ["geehrt"],
-    ("business partner",): ["der Geschäftspartner"],
-
-
-    # Meine Stadt - 15c
-    ("to notify", "to tell"): ["mitteilen"],
-    ("column",): ["die Spalte"]
+    # ("sales booth",): ["der Verkaufsstand"],
+    # ("to question", "to examine"): ["vernehmen","untersuchen", "überprüfen","nachprüfen"],
+    # ("witness",): ["der Zeuge"],
+    # ("free activity",): ["die Freizeitaktivität"],
+    # ("tourism",): ["der Tourismus"],
+    # ("friendly",): ["freundlich"],
+    # ("honored",): ["geehrt"],
+    # ("business partner",): ["der Geschäftspartner"],
+    # ("to notify", "to tell"): ["mitteilen"],
+    # ("column",): ["die Spalte"]
 }
 chapter_ten = {
     ("honesty", "sincerity", "truthfulness"): ['die Ehrlichkeit'],
