@@ -402,6 +402,36 @@ chapter_ten = {
 
 }
 
-
+chapter_nine = {
+    ("piece of art", "stunt"):["das Kunststück", "die Darbietung"],
+    ("to look at",):["anschauen", "ansehen", "betrachten"],
+    ("eye",):["das Auge", "das Sehorgan"],
+    ("to catch someone’s eye",):["ins Auge fallen", "auffallen"],
+    ("fountain", "well"):["der Brunnen"],
+    ("castle", "fortress"):["die Burg", "die Festung", "das Schloss"],
+    ("detail", "feature"):["das Detail", "die Einzelheit", "das Merkmal"],
+    ("a little", "somewhat"):["ein wenig", "etwas", "ein bisschen"],
+    ("copy", "specimen"):["das Exemplar", "die Kopie"],
+    ("transcript",):["die Abschrift"],
+    ("to flee", "to escape"):["fliehen", "flüchten", "entkommen"],
+    ("painting", "picture"):["das Gemälde", "das Bild", "die Malerei"],
+    ("usual", "ordinary", "common"):["gewöhnlich", "üblich", "alltäglich", "normal"],
+    ("to grasp", "to reach for"):["greifen", "erfassen", "zugreifen"],
+    ("craft", "handicraft"):["das Handwerk"],
+    ("to come here",):["hierherkommen"],
+    ("to go up",):["hinaufgehen", "aufsteigen"],
+    ("necklace", "chain"):["die Kette", "das Halsband"],
+    ("strength", "power"):["die Kraft", "die Stärke", "die Macht"],
+    ("war", "armed encounter", "battle"):["der Krieg", "der Waffengang", "die Schlacht"],
+    ("artwork", "work of art", "creation"):["das Kunstwerk", "die Kreation", "die Schöpfung"],
+    ("curve", "bend"):["die Kurve", "die Biegung"],
+    ("to sew", "to stitch"):["nähen", "sticken"],
+    ("earring",):["der Ohrring", "der Ohrstecker", "der Ohrschmuck"],
+    ("to value", "to estimate"):["schätzen", "bewerten", "einschätzen"],
+    ("oblique", "diagonal", "tilted"):["schräg", "diagonal", "geneigt"],
+    ("vertical", "perpendicular"):["senkrecht", "lotrecht"],
+    ("stairs",):["die Stiege", "die Treppe"],
+    ("horizontal",):["waagerecht", "horizontal", "eben"]
+}
 
 

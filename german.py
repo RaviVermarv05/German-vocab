@@ -170,7 +170,7 @@ chapters = {
     # 6: chapter_six,
     # 7: chapter_seven,
     # 8: chapter_eight,
-    # 9: chapter_nine,
+    9: chapter_nine,
     10: chapter_ten,
     11: chapter_eleven,
     12: chapter_twelve
@@ -200,7 +200,7 @@ if mode in [1,2,4,5]:
             print("Invalid input. Please enter valid chapter.")
     raw_vocab = chapters.get(raw_vocab)
 else:
-    raw_vocab =chapter_eleven|chapter_twelve|chapter_ten
+    raw_vocab =chapter_eleven|chapter_twelve|chapter_ten|chapter_nine
     total_german_words()
 
 # Flatten to list of ((eng_terms), german_word) pairs
