@@ -74,7 +74,7 @@ def quiz_eng_ger(guessed,german_words,display_eng,wrong_guesses):
             correct_word = ger[4:].lower().strip()
             correct_article = ger[0:3].lower()
 
-            if answer == ger.lower().strip() or answer == correct_word:
+            if answer == ger.lower().strip() or (answer == correct_word and answer !=''):
                 print("Gut gemacht ✅")
                 correct_answers += 1
                 guessed.add(ger)
