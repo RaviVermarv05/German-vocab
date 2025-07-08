@@ -10,7 +10,7 @@ chapter_twelve = {
     ("coffee beans",): ['der Bohnenkaffee'],
     ("unity",): ['die Einheit'],
     ("men's suit",): ['der Herrenanzug'],
-    ("wardrobe",): ['der Kleiderschrank'],
+    ("wardrobe",): ['der Kleiderschrank',"die Garderobe"],
     ("brown bread",): ['das Mischbrot'],
     ("full milk",): ['die Vollmilch'],
     #in der bank
@@ -409,7 +409,6 @@ chapter_nine = {
     ("Artist",):["der Künstler"],
     ("impressive",):["eindrucksvoll","beeindruckend","imposant","imponierend","eindrücklich"],
     ("in the middle of",):["in der Mitte von/G"],
-
     ("to look at",):["anschauen", "ansehen", "betrachten"],
     ("eye",):["das Auge", "das Sehorgan"],
     ("to catch someone’s eye",):["ins Auge fallen", "auffallen"],
@@ -439,7 +438,6 @@ chapter_nine = {
     ("stairs",):["die Stiege", "die Treppe"],
     ("horizontal",):["waagerecht", "horizontal", "eben"],
     ("envelope",):["das Kuvert", "der Briefumschlag"],  # Kuvert is Austria, Briefumschlag standard
-
     ("butcher",): ["der Metzger", "der Fleischer"],  # both common for butcher
     ("matchstick",): ["das Streichholz", "der Zünder", "das Zündholz"],  # all synonyms
     ("artwork",): ["das Kunstobjekt", "das Kunstwerk"],
@@ -447,37 +445,34 @@ chapter_nine = {
     ("to perform",): ["aufführen"],
     ("to turn off",): ["ausmachen", "abschalten"],
     ("burdened",): ["belastet", "überlastet"],
-    # ("stage",): ["die Bühne", "das Podium"],
-    # ("this time",): ["diesmal", "dieses Mal"],
-    # ("nurse",): ["der Krankenpfleger", "der Pfleger"],
-    # ("manager",): ["der Manager", "die Geschäftsleitung"],
-    # ("sacrifice",): ["das Opfer"],
-    # ("commitment",): ["die Hingabe"],
-    # ("premiere",): ["die Premiere"],
-    # ("private life",): ["das Privatleben", "das persönliche Leben"],
-    #
-    # ("mute",): ["stumm", "lautlos"],
-    # ("theater professionals",): ["die Theaterleute", "die Bühnenschaffenden"],
-    # ("play",): ["das Theaterstück", "das Drama"],
-    # ("performance", "show"): ["die Aufführung", "die Vorstellung"],
-    # ("equipment",): ["die Ausstattung"],
-    # ("beard",):["der Bart", "das Barthaar"],
-    # ("to light up",): ["beleuchten", "erhellen"],
-    # ("haircut",): ["die Frisur", "der Haarschnitt"],
-    # ("backdrop",): ["die Kulisse"],
-    # ("backrest", "armrest"): ["die Lehne", "die Armlehne"],
-    # ("sewing machine",): ["die Nähmaschine", "die Stickmaschine"],
 
-    # ("makeup",): ["die Schminke", "das Make-up"],
-    # ("to make up",): ["schminken", "tuschieren"],
-    # ("talent",): ["das Talent", "die Begabung"],
-    # ("appointment calendar",): ["der Terminkalender", "der Kalender"],
-    # ("theatrical stage",): ["die Theaterbühne", "die Bühne"],
-    # ("tragedy",): ["die Tragödie", "die Katastrophe"],
-    # ("existing", "available"): ["vorhanden", "verfügbar"],
-    #
+    ("stage",): ["die Bühne", "die Theaterbühne", "das Podium"],
+    ("this time",): ["diesmal", "dieses Mal"],
+    ("nurse",): ["der Krankenpfleger", "der Pfleger"],
+    ("manager",): ["der Manager", "die Geschäftsleitung"],
+    ("sacrifice",): ["das Opfer"],
+    ("commitment",): ["die Hingabe"],
+    ("premiere",): ["die Premiere"],
+    ("private life",): ["das Privatleben", "das persönliche Leben"],
+    ("mute",): ["stumm", "lautlos"],
+    ("theater professionals",): ["die Theaterleute", "die Bühnenschaffenden"],
+    ("play",): ["das Theaterstück", "das Drama"],
+    ("performance", "show"): ["die Aufführung", "die Vorstellung"],
+    ("equipment",): ["die Ausstattung"],
+    ("beard",):["der Bart", "das Barthaar"],
+    ("to light up",): ["beleuchten", "erhellen"],
+    ("haircut",): ["die Frisur", "der Haarschnitt"],
+    ("backdrop",): ["die Kulisse"],
+    ("backrest", "armrest"): ["die Lehne", "die Armlehne"],
+    ("sewing machine",): ["die Nähmaschine", "die Stickmaschine"],
+    ("makeup",): ["die Schminke", "das Make-up"],
+    ("to make up",): ["schminken"],
+    ("talent",): ["das Talent", "die Begabung"],
+    ("appointment calendar",): ["der Terminkalender", "der Kalender"],
+    ("tragedy",): ["die Tragödie", "die Katastrophe"],
+    ("existing", "available"): ["vorhanden", "verfügbar"],
+
     # ("to occur", "to appear"): ["auftreten", "erscheinen"],
-    # ("ballet",): ["das Ballett", "der Tanz"],
     # ("brochure",): ["die Broschüre", "der Prospekt"],
     # ("buffet",): ["das Büfett", "das Buffet"],
     # ("incidence",): ["der Einfall"],
@@ -487,6 +482,7 @@ chapter_nine = {
     # ("acting school",): ["die Schauspielschule", "die Theaterschule"],
     # ("dance",): ["der Tanz", "das Tanzen"],
     # ("dancer",): ["der Tänzer", "der Tänzerin"],  # male/female
+
     # ("theater director",): ["der Theaterregisseur", "der Bühnenleiter"],
     # ("advertisement", "insert"): ["das Inserat", "die Anzeige", "die Werbung"],
     # ("classroom",): ["der Kursraum", "das Klassenzimmer", "die Schulklasse"],
@@ -495,8 +491,11 @@ chapter_nine = {
     # ("sports team",): ["das Sportteam", "die Mannschaft"],
     #
     # ("to acquire",): ["erwerben"],
+    # ('to restructure',):['umstrukturieren'],
     # ("auction",): ["die Auktion"],
+    # ('to make a sacrifice',):['ein Opfer bringen']
     # ("auctioneer",): ["der Auktionator"],
+    # ('admirable',):['bewundernswert']
     # ("auction visitors",): ["die Auktionsbesucher"],
     # ("auction house",): ["das Auktionshaus"],
     # ("owner",): ["der Besitzer"],
