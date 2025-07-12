@@ -481,7 +481,7 @@ chapter_nine = {
     ("qualification",): ["die Qualifikation"],
     ("acting school",): ["die Schauspielschule", "die Theaterschule"],
     ("dance",): ["der Tanz", "das Tanzen"],
-    ("dancer",): ["der Tänzer", "der Tänzerin"],  # male/female
+    ("dancer",): ["der Tänzer", "die Tänzerin"],  # male/female
 
     ("theater director",): ["der Theaterregisseur", "der Bühnenleiter"],
     ("advertisement", "insert"): ["das Inserat", "die Anzeige", "die Werbung"],
@@ -493,21 +493,21 @@ chapter_nine = {
     ("to acquire",): ["erwerben"],
     ('to restructure',):['umstrukturieren'],
     ("auction",): ["die Auktion"],
-    ('to make a sacrifice',):['ein Opfer bringen']
+    ('to make a sacrifice',):['ein Opfer bringen'],
     ("auctioneer",): ["der Auktionator"],
-    ('admirable',):['bewundernswert']
+    ('admirable',):['bewundernswert'],
     ("auction visitors",): ["die Auktionsbesucher"],
     ("auction house",): ["das Auktionshaus"],
     ("owner",): ["der Besitzer"],
     ("former(ly)",): ["ehemalig", "früher"],
-    ("to achieve", "to attain"): ["erzielen", "erreichen"],
-    ("thorough(ly)",): ["gründlich", "sorgfältig"],
-    ("rubber tub",): ["die Gummiwanne", "der Gummibehälter"],
-    ("to come near",): ["herankommen", "sich nähern"],
-    ("installation",): ["die Installation"],
-    ("misfortune",): ["das Missgeschick", "das Unglück"],
-    ("original",): ["original", "ursprünglich"],
-    ("smart", "clever"): ["pfiffig", "klug"],
+    # ("to achieve", "to attain"): ["erzielen", "erreichen"],
+    # ("thorough(ly)",): ["gründlich", "sorgfältig"],
+    # ("rubber tub",): ["die Gummiwanne", "der Gummibehälter"],
+    # ("to come near",): ["herankommen", "sich nähern"],
+    # ("installation",): ["die Installation"],
+    # ("misfortune",): ["das Missgeschick", "das Unglück"],
+    # ("original",): ["original", "ursprünglich"],
+    # ("smart", "clever"): ["pfiffig", "klug"],
     # ("duty",): ["die Pflicht", "die Aufgabe"],
     # ("inexpensive(ly)",): ["preiswert", "günstig"],
     #
