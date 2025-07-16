@@ -500,7 +500,7 @@ chapter_nine = {
     ("auction house",): ["das Auktionshaus"],
     ("owner",): ["der Besitzer"],
     ("former(ly)",): ["ehemalig", "früher"],
-    # ("to achieve", "to attain"): ["erzielen", "erreichen"],
+    ("to achieve", "to attain"): ["erzielen", "erreichen"],
     # ("thorough(ly)",): ["gründlich", "sorgfältig"],
     # ("rubber tub",): ["die Gummiwanne", "der Gummibehälter"],
     # ("to come near",): ["herankommen", "sich nähern"],
