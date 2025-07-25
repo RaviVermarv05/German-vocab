@@ -501,7 +501,7 @@ chapter_nine = {
     ("owner",): ["der Besitzer"],
     ("former(ly)",): ["ehemalig", "früher"],
     ("to achieve", "to attain"): ["erzielen", "erreichen"],
-    # ("thorough(ly)",): ["gründlich", "sorgfältig"],
+    ("thorough(ly)",): ["gründlich", "sorgfältig"],
     # ("rubber tub",): ["die Gummiwanne", "der Gummibehälter"],
     # ("to come near",): ["herankommen", "sich nähern"],
     # ("installation",): ["die Installation"],
