@@ -81,7 +81,7 @@ def quiz_eng_ger(guessed,german_words,display_eng,wrong_guesses):
                 matched = True
 
                 if answer == correct_word:
-                    article = input("Könnten Sie auch den Artikel einfügen?").lower().strip()
+                    article = input("Könnten Sie auch den Artikel einfügen? ").lower().strip()
                     total_attempts += 1
                     if article == correct_article:
                         print(f'😄 Ihr Artikel ist richtig: {ger}')
