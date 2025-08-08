@@ -3,6 +3,44 @@ from word_list import *
 from speech_output import audio_files_prog
 
 
+def selected_range():
+    a = input('Want to work on all words (Y/N) ').lower().strip()
+    while True:
+        if a in ['all', 'yes', 'y']:
+            return None, None  # Return None for full range
+        elif a in ['no', 'n']:
+            while True:
+                try:
+                    starting_range = int(input('Enter starting range: ').strip())
+                    ending_range = int(input('Enter ending range: ').strip())
+                    if starting_range > 0 and ending_range >= starting_range:
+                        return starting_range, ending_range
+                    else:
+                        print("Invalid range! Starting range must be > 0 and ending range >= starting range")
+                except ValueError:
+                    print("Please enter valid numbers!")
+        else:
+            a = input('Please enter Y/N: ').lower().strip()
+
+
+def apply_range_filter(vocab_dict, start_range, end_range):
+    """Filter vocabulary dictionary based on range selection"""
+    if start_range is None or end_range is None:
+        return vocab_dict
+
+    # Convert dictionary items to a list to apply range
+    vocab_items = list(vocab_dict.items())
+
+    # Apply range filter (adjust indices for 0-based indexing)
+    start_idx = max(0, start_range - 1)
+    end_idx = min(len(vocab_items), end_range)
+
+    filtered_items = vocab_items[start_idx:end_idx]
+
+    # Convert back to dictionary
+    return dict(filtered_items)
+
+
 def result_in_german(rate):
     print(f"\n{'🎉' * 5} Du hast alle Wörter geschafft! {'🎉' * 5}")
     print(f"✅ Erfolgsquote: {rate}% ({correct_answers}/{total_attempts})")
@@ -18,6 +56,8 @@ def result_in_german(rate):
 
     elif int(rate) == 100:
         print("😍🤩🥳 HERZLICHEN GLÜCKWUNSCH! 😍🤩🥳")
+
+
 def rasult_in_eng(rate):
     print(f"\n{'🎉' * 5} You've completed all the words! {'🎉' * 5}")
     print(f"✅ Success rate: {rate}% ({correct_answers}/{total_attempts})")
@@ -33,14 +73,18 @@ def rasult_in_eng(rate):
 
     elif int(rate) == 100:
         print("😍🤩🥳CONGRATULATIONS😍🤩🥳")
+
+
 def total_german_words():
     v = 0
     for i in raw_vocab:
-        for j in raw_vocab[i]:
+        for _ in raw_vocab[i]:
             v += 1
     print(f"till now we have covered {v} german words")
-def quiz_ger_eng(german_words,random_engs,wrong_guesses,display_eng):
-    global total_attempts,correct_answers
+
+
+def quiz_ger_eng(german_words, random_engs, wrong_guesses, display_eng):
+    global total_attempts, correct_answers
     remaining_germans = ", ".join(german_words)
     for _ in range(2):
         answer = input(f"{remaining_germans} - ").lower().strip()
@@ -60,7 +104,9 @@ def quiz_ger_eng(german_words,random_engs,wrong_guesses,display_eng):
         for g in german_words:
             practice_words.append(g)
         practice_words.append(' ')
-def quiz_eng_ger(guessed,german_words,display_eng,wrong_guesses):
+
+
+def quiz_eng_ger(guessed, german_words, display_eng, wrong_guesses):
     global total_attempts, correct_answers
     while len(guessed) < len(german_words):
         answer = input(f"{display_eng} - ").lower().strip()
@@ -74,7 +120,7 @@ def quiz_eng_ger(guessed,german_words,display_eng,wrong_guesses):
             correct_word = ger[4:].lower().strip()
             correct_article = ger[0:3].lower()
 
-            if answer == ger.lower().strip() or (answer == correct_word and answer !=''):
+            if answer == ger.lower().strip() or (answer == correct_word and answer != ''):
                 print("Gut gemacht ✅")
                 correct_answers += 1
                 guessed.add(ger)
@@ -103,52 +149,61 @@ def quiz_eng_ger(guessed,german_words,display_eng,wrong_guesses):
                     practice_words.append(g)
                 practice_words.append(' ')
                 break
-def review(chapters,chapter_number):
 
+
+def review(chapters, chapter_number, start_range=None, end_range=None):
     s_no = 0
     print("\n")
 
-    for i in chapters[int(chapter_number)]:
-        s_no += 1
-        capitalized_nouns=[]
+    # Get the chapter vocabulary and apply range if specified
+    chapter_vocab = chapters[int(chapter_number)]
+    if start_range is not None and end_range is not None:
+        chapter_vocab = apply_range_filter(chapter_vocab, start_range, end_range)
+        print(f"📝 Showing range {start_range}-{end_range} from Chapter {chapter_number}")
 
+    for i in chapter_vocab:
+        s_no += 1
+        capitalized_nouns = []
 
         english = ", ".join(i)
-        german_list=chapters[int(chapter_number)][i]
-        for i in german_list:
-            if i[0:4].lower() in ['der ','die ','das ']:
-                capitalized_nouns.append(i[0:3].lower().strip() +i[3]+i[4].capitalize()+i[5:].lower())
+        german_list = chapter_vocab[i]
+        for word in german_list:
+            if word[0:4].lower() in ['der ', 'die ', 'das ']:
+                capitalized_nouns.append(word[0:3].lower().strip() + word[3] + word[4].capitalize() + word[5:].lower())
             else:
-                capitalized_nouns=german_list
+                capitalized_nouns = german_list
 
         german = ", ".join(capitalized_nouns)
         print(f"{s_no}. {german} -⟶ {english}")
         if s_no % 10 == 0:
             print("\n")
+
+
 def search_word(raw_vocab):
     while True:
         search = input("\nenter the word: ").lower().strip()
 
         if search in ["exit now", "quit now"]:
             return
-        found=False
+        found = False
         for i in raw_vocab:
             for j in i:
                 if search == j.lower().strip():
                     for k in raw_vocab[i]:
-                        found=True
+                        found = True
                         print(f"* {k}")
                     print('\n')
             for m in raw_vocab[i]:
-                if search == m.lower().strip() or (search == m[4:].lower().strip() and m[0:4].lower() in ['der ','die ','das ']):
-
+                if search == m.lower().strip() or (
+                        search == m[4:].lower().strip() and m[0:4].lower() in ['der ', 'die ', 'das ']):
                     for l in i:
-                        found=True
+                        found = True
                         print(f"* {l} - {m}")
                     print('\n')
 
         if not found:
             print('❌ Word not found')
+
 
 print('''Welcome to German Vocabulary!
 Choose Mode:
@@ -160,7 +215,7 @@ Choose Mode:
 
 correct_answers = 0
 total_attempts = 0
-practice_words=[]
+practice_words = []
 chapters = {
     # 1: chapter_one,
     # 2: chapter_two,
@@ -180,27 +235,40 @@ chapters = {
 while True:
     mode_input = input("Enter your choice: ").strip()
 
-    if mode_input in ("1", "2", "3","4","5"):
+    if mode_input in ("1", "2", "3", "4", "5"):
         mode = int(mode_input)
         break
-    elif mode_input.lower().strip()in["show","review"]:
-        mode=4
+    elif mode_input.lower().strip() in ["show", "review"]:
+        mode = 4
         break
     else:
         print("Invalid input. Try again!")
-# print('\n')
-if mode in [1,2,4,5]:
-#Ask user for chapter no
+
+# Initialize range variables
+start_range, end_range = None, None
+
+if mode in [1, 2, 4, 5]:
+    # Ask user for chapter no
     while True:
         chapter_number = input("Enter chapter number 1-12 ").strip()
-        if chapter_number in ("1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11","12"):
+        if chapter_number in ("1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12"):
             raw_vocab = int(chapter_number)
             break
         else:
             print("Invalid input. Please enter valid chapter.")
+
+    # Get range selection
+    start_range, end_range = selected_range()
+
+    # Get chapter vocabulary and apply range filter
     raw_vocab = chapters.get(raw_vocab)
+    if start_range is not None and end_range is not None:
+        raw_vocab = apply_range_filter(raw_vocab, start_range, end_range)
+        print(f"📚 Working on range {start_range}-{end_range} ({len(raw_vocab)} word pairs)")
+    else:
+        print(f"📚 Working on all words ({len(raw_vocab)} word pairs)")
 else:
-    raw_vocab =chapter_eleven|chapter_twelve|chapter_ten|chapter_nine
+    raw_vocab = chapter_eleven | chapter_twelve | chapter_ten | chapter_nine
     total_german_words()
 
 # Flatten to list of ((eng_terms), german_word) pairs
@@ -213,13 +281,14 @@ for eng_terms, ger_list in raw_vocab.items():
 remaining = list(set(eng for eng, _ in vocab_pairs))
 completed = set()
 
+
 def logic():
-    global correct_answers, total_attempts,practice_words
+    global correct_answers, total_attempts, practice_words
     if len(completed) == len(remaining):
         rate = round((correct_answers / total_attempts) * 100, 2) if total_attempts else 0
-        if mode==2:
+        if mode == 2:
             rasult_in_eng(rate)
-        elif mode ==1:
+        elif mode == 1:
             result_in_german(rate)
         return False
 
@@ -237,25 +306,26 @@ def logic():
     if mode == 2:
         # Mode 2: German → English
         print(f"\n📘 Enter the appropriate english word")
-        quiz_ger_eng(german_words,random_engs, wrong_guesses, display_eng)
+        quiz_ger_eng(german_words, random_engs, wrong_guesses, display_eng)
         completed.add(random_engs)
         return True
     elif mode == 1:
         # Mode 1: English → German
-        len_german_words=len(german_words)
-        if len_german_words==1:
+        len_german_words = len(german_words)
+        if len_german_words == 1:
             print(f"\n📘Es gibt {len_german_words} deutsches Wort.")
         else:
             print(f"\n📘Es gibt {len_german_words} deutsche Wörter.")
         quiz_eng_ger(guessed, german_words, display_eng, wrong_guesses)
         completed.add(random_engs)
         return True
-    elif mode==3:
+    elif mode == 3:
         search_word(raw_vocab)
-    elif mode==4:
-        review(chapters,chapter_number)
-    elif mode==5:
+    elif mode == 4:
+        review(chapters, chapter_number, start_range, end_range)
+    elif mode == 5:
         audio_files_prog(raw_vocab)
+
 
 # Run the game loop
 game_is_on = True
