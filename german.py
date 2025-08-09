@@ -7,7 +7,7 @@ def selected_range():
     a = input('Want to work on all words (Y/N) ').lower().strip()
     while True:
         if a in ['all', 'yes', 'y']:
-            return None, None  # Return None for full range
+            return None, None  # return None for full range
         elif a in ['no', 'n']:
             while True:
                 try:
