@@ -1,6 +1,16 @@
 import random
 from word_list import *
 from speech_output import audio_files_prog
+import pygame
+
+pygame.init()
+
+# Initialize the mixer
+pygame.mixer.init()
+
+# Load sounds
+sound_correct = pygame.mixer.Sound("correct-156911.mp3")
+sound_wrong = pygame.mixer.Sound("error-010-206498.mp3")
 
 
 def selected_range():
@@ -89,15 +99,18 @@ def quiz_ger_eng(german_words, random_engs, wrong_guesses, display_eng):
         answer = input(f"{remaining_germans} - ").lower().strip()
         total_attempts += 1
         if answer in [e.lower().strip() for e in random_engs]:
+            sound_correct.play()
             print("Right ✅")
             correct_answers += 1
             break
         else:
             print("False ❌")
+            sound_wrong.play()
             print(f"Incorrect attempts: {wrong_guesses + 1}/2")
             wrong_guesses += 1
     else:
         print("⚠️ Too many incorrect guesses!")
+        sound_wrong.play()
         print("✅ Correct answers:")
         print(f"- {display_eng}")
         for g in german_words:
@@ -121,6 +134,7 @@ def quiz_eng_ger(guessed, german_words, display_eng, wrong_guesses):
 
             if answer == ger.lower().strip() or (answer == correct_word and answer != ''):
                 print("Gut gemacht ✅")
+                sound_correct.play()
                 correct_answers += 1
                 guessed.add(ger)
                 matched = True
@@ -130,18 +144,22 @@ def quiz_eng_ger(guessed, german_words, display_eng, wrong_guesses):
                     total_attempts += 1
                     if article == correct_article:
                         print(f'😄 Ihr Artikel ist richtig: {ger}')
+                        sound_correct.play()
                         correct_answers += 1
                     else:
                         print(f'Nein ❌,die richtige Antwort ist: {ger}')
+                        sound_wrong.play()
                 break
 
         if not matched:
             wrong_guesses += 1
             print("Falsch ❌")
+            sound_wrong.play()
             print(f"Falsche Versuche: {wrong_guesses}/2")
 
             if wrong_guesses >= 2:
                 print("⚠️ Zu viele falsche Vermutungen!")
+                sound_wrong.play()
                 print("✅ Richtige Antworten:")
                 for g in german_words:
                     print(f"- {g}")
@@ -202,6 +220,7 @@ def search_word(raw_vocab):
 
         if not found:
             print('❌ Word not found')
+            sound_wrong.play()
 
 
 print('''Welcome to German Vocabulary!
@@ -242,6 +261,7 @@ while True:
         break
     else:
         print("Invalid input. Try again!")
+        sound_wrong.play()
 
 # Initialize range variables
 start_range, end_range = None, None
@@ -255,6 +275,7 @@ if mode in [1, 2, 4, 5]:
             break
         else:
             print("Invalid input. Please enter valid chapter.")
+            sound_wrong.play()
 
     # Get range selection
     start_range, end_range = selected_range()
