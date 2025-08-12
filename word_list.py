@@ -526,11 +526,11 @@ chapter_nine = {
     ("announcement",):["die Ankündigung", "die Bekanntgabe"],
     ("Argentina",):["Argentinien"],  # proper noun, no synonym
     ("exchange student",):["der Austauschschüler", "der Austauschstudent"],
-    ("documentary film",):["der Dokumentarfilm", "die Dokumentation"],
+    ("documentary film",):["der Dokumentarfilm"],
     ("lecturer", "instructor"):["der Dozent", "der Lehrbeauftragte", "der Lehrer"],
     ("children's film",):["der Kinderfilm", "der Jugendfilm"],
     ("folk music",):["die Volksmusik", "die traditionelle Musik"],
-    ("day of shooting",):["der Drehtag", "der Filmtag"],
+
     ("film screening",):["die Filmvorführung", "die Filmaufführung"],
     ("editor",):["der Redakteur", "der Herausgeber", "der Bearbeiter"],
 

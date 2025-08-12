@@ -40,7 +40,6 @@ def apply_range_filter(vocab_dict, start_range, end_range):
     # Convert back to dictionary
     return dict(filtered_items)
 
-
 def result_in_german(rate):
     print(f"\n{'🎉' * 5} Du hast alle Wörter geschafft! {'🎉' * 5}")
     print(f"✅ Erfolgsquote: {rate}% ({correct_answers}/{total_attempts})")
