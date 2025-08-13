@@ -543,7 +543,7 @@ chapter_nine = {
     ("to play music",):["musizieren", "Musik machen"],
     ("regional(ly)",):["regional", "gebietsbezogen"],
     ("language border",):["die Sprachgrenze", "die Sprachbarriere"],
-    ("relationship", "ratio"):["das Verhältnis", "die Beziehung"],
+    ("relationship"):["die Beziehung"],
     ("folk song",):["das Volkslied", "das Lied", "die Volksweise"],
     ("in two", "in half"):["entzwei", "halbiert", "in zwei Teile"],
     ("to shoot dead",):["erschießen"],

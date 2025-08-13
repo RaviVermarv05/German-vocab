@@ -4,10 +4,8 @@ from speech_output import audio_files_prog
 import pygame
 
 pygame.init()
-
 # Initialize the mixer
 pygame.mixer.init()
-
 # Load sounds
 sound_correct = pygame.mixer.Sound("correct-156911.mp3")
 sound_wrong = pygame.mixer.Sound("error-010-206498.mp3")
