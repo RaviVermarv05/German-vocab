@@ -510,7 +510,8 @@ chapter_nine = {
     ("female cleaner",): ["die Putzfrau"],
     ("cleaning service",): ["die Reinigungsfirma", "der Reinigungsdienst","die Putzfirma"],
     ("cleaning staff",): ["das Reinigungspersonal", "die Reinigungskräfte"],
-    ("guilty",): ["schuldig", "verantwortlich"],
+    ("guilty",): ["schuldig"],
+
     ("to be astonished",): ["staunen", "erstaunt sein"],
     ("to sue",): ["verklagen", "gerichtlich belangen"],
     ("mistake", "oversight"): ["das Versehen", "der Fehler"],
