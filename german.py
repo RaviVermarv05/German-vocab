@@ -240,7 +240,7 @@ chapters = {
     # 5: chapter_five,
     # 6: chapter_six,
     # 7: chapter_seven,
-    # 8: chapter_eight,
+    8: chapter_eight,
     9: chapter_nine,
     10: chapter_ten,
     11: chapter_eleven,
