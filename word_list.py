@@ -565,6 +565,8 @@ chapter_nine = {
     ("forgivable",): ["vergeblich", "entschuldbar", "verzeihlich"],
     ("to fly by",): ["vorbeifliegen", "vorüberfliegen"],
 
+}
+chapter_eight = {
     ("to strain", "to exert", 'to put efforts'): ["anstrengen (sich)", "sich bemühen"],
     ("sufficient", "sufficiently"): ["ausreichend", "genügend"],
     ("bee",): ["die Biene"],
