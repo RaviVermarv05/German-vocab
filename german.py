@@ -286,7 +286,7 @@ if mode in [1, 2, 4, 5]:
     else:
         print(f"📚 Working on all words ({len(raw_vocab)} word pairs)")
 else:
-    raw_vocab = chapter_eleven | chapter_twelve | chapter_ten | chapter_nine
+    raw_vocab = chapter_eleven | chapter_twelve | chapter_ten | chapter_nine | chapter_eight
     total_german_words()
 
 # Flatten to list of ((eng_terms), german_word) pairs
