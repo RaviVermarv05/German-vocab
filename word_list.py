@@ -269,7 +269,7 @@ chapter_ten = {
 
     ("disabled", "impaired"): ['behindert', 'beeinträchtigt'],
     ("blind person",): ['der Blinde'],
-    ("chancellor",): ['der Bundeskanzler', 'die Bundeskanzlerin'],
+    ("chancellor",): ['der Bundeskanzler'],
 
     ("German legislature", "federal parliament"): ['der Bundestag'],
     ("mayor", "municipal leader"): ['der Bürgermeister', 'das Stadtoberhaupt'],
@@ -281,7 +281,7 @@ chapter_ten = {
     ("candidate m/w",): ['die Kandidatin', 'der Kandidat'],
     ("physical", "bodily", "corporeal"): ['körperlich', 'physisch', 'leiblich'],
 
-    ("minister", "secretary", "cabinet member"): ['der Minister', 'das Kabinettsmitglied'],
+    ("minister",): ['der Minister'],
     ("political party", "party", "faction"): ['die Partei', 'die politische Gruppierung'],
 
     ("politics", "government affairs"): ['die Politik'],
@@ -290,7 +290,7 @@ chapter_ten = {
 
     ("government", "administration", "regime"): ['die Regierung', 'die Verwaltung'],
     ("main focus", "center of gravity", "emphasis", "priority"): ['der Schwerpunkt', 'der Fokus', 'die Priorität'],
-    ("to exercise", "to apply"): ['ausüben', 'praktizieren'],
+    ("to exercise", "to apply"): ['ausüben'],
     ("religion", "faith", "belief system"): ['die Religion', 'der Glaube'],
     ("to secure", "to ensure"): ['sichern', 'gewährleisten'],
 
@@ -320,7 +320,7 @@ chapter_ten = {
     ("mostly", "most of the time", "in most cases"): ["meist", "größtenteils", "hauptsächlich", "weitestgehend"],
     ("carrot",): ["die Möhre", "die Karotte", "die Mohrrübe"],
     ("nighttime", "night hours"): ["die Nachtzeit", "die nächtliche Zeit"],
-    ("organization", "institution", "body", "union"): ["die Organisation", "die Einrichtung", "der Verband"],
+    ("organization", "institution", "body"): ["die Organisation", "die Einrichtung", "der Verband"],
 
     ("bandage",): ["der Verband"],
     ("godparent",): ["der Pate", "der Taufpate"],
@@ -335,7 +335,7 @@ chapter_ten = {
                                          "der Bund"],
 
     ("club member", "association member"): ["das Vereinsmitglied", "der Clubteilnehmer", "der Vereinsangehörige"],
-    ("to destroy", "to annihilate"): ["vernichten", "zerstören", "auslöschen"],
+    ("to destroy", "to annihilate"): ["vernichten", "zerstören"],
     ("to extinguish",): ["löschen", "auslöschen"],
     ("to throw away", "to discard", "to dump"): ["wegwerfen", "entsorgen"],
     ("to eradicate",): ["beseitigen"],
@@ -350,13 +350,12 @@ chapter_ten = {
     ("outside",): ["außerhalb + Genitiv"],
     ("already",): ["bereits", "schon"],
     ("to threaten",): ["drohen", "androhen", "bedrohen"],
-    ("to register", "to record", "to enter", "to insert"): ["eintragen", "vermerken", "einfügen"],
+    ("to register", "to record", "to insert"): ["eintragen", "vermerken", "einfügen"],
     ("purchase", "buy", "shopping"): ["der Einkauf", "der Erwerb"],
     ("to open",): ["eröffnen"],
     ("global", "worldwide", "international"): ["global", "weltweit", "international"],
     ("hall", "auditorium"): ["die Halle", "der Saal"],
-    ("university", "college", "institution of higher education"): ["die Hochschule", "die Universität",
-                                                                   "die Fachhochschule"],
+
     ("within", "inside"): ["innerhalb + Genitiv"],
     ("career center", "job agency"): ["das Jobcenter", "die Arbeitsagentur"],
 
@@ -368,7 +367,7 @@ chapter_ten = {
     ("place to study",): ["der Studienplatz", "der Studienort", "die Studienstätte"],
     ("time to study",): ["die Studienzeit", "die Studiumsdauer", "die Ausbildungszeit"],
     ("sale", "clearance"): ["der Verkauf", "der Ausverkauf", "der Sonderverkauf", "die Rabattaktion"],
-    ("trained",): ["ausgebildet", "geschult", "qualifiziert", "geübt"],
+    ("trained",): ["ausgebildet", "geschult", "geübt"],
     ("to keep clean",): ["sauber halten", "rein halten", "ordentlich halten"],
     ("to go on strike",): ["streiken", "in den Streik treten"],
 
