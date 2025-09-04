@@ -2,13 +2,19 @@ import random
 from word_list import *
 from speech_output import audio_files_prog
 import pygame
+from main_settings import *
+
+settings=Settings()
+trials=Settings.trials
 
 pygame.init()
 # Initialize the mixer
 pygame.mixer.init()
 # Load sounds
 sound_correct = pygame.mixer.Sound("correct-156911.mp3")
+sound_correct.set_volume(Settings.volume_limit)
 sound_wrong = pygame.mixer.Sound("error-010-206498.mp3")
+sound_wrong.set_volume(Settings.volume_limit)
 
 
 def selected_range():
@@ -93,7 +99,7 @@ def total_german_words():
 def quiz_ger_eng(german_words, random_engs, wrong_guesses, display_eng):
     global total_attempts, correct_answers
     remaining_germans = ", ".join(german_words)
-    for _ in range(2):
+    for _ in range(trials):
         answer = input(f"{remaining_germans} - ").lower().strip()
         total_attempts += 1
         if answer in [e.lower().strip() for e in random_engs]:
@@ -133,6 +139,7 @@ def quiz_eng_ger(guessed, german_words, display_eng, wrong_guesses):
             if answer == ger.lower().strip() or (answer == correct_word and answer != ''):
                 print("Gut gemacht ✅")
                 sound_correct.play()
+
                 correct_answers += 1
                 guessed.add(ger)
                 matched = True
@@ -155,7 +162,7 @@ def quiz_eng_ger(guessed, german_words, display_eng, wrong_guesses):
             sound_wrong.play()
             print(f"Falsche Versuche: {wrong_guesses}/2")
 
-            if wrong_guesses >= 2:
+            if wrong_guesses >= trials:
                 print("⚠️ Zu viele falsche Vermutungen!")
                 sound_wrong.play()
                 print("✅ Richtige Antworten:")
