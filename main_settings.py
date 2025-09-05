@@ -4,7 +4,7 @@ pygame.init()
 # Initialize the mixer
 pygame.mixer.init()
 class Settings:
-    trials=2
+    trials=2 #1 being the lowest
     show_article=False
     volume_limit=1.0  #0-1
     sound_enable=True

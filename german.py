@@ -159,7 +159,7 @@ def quiz_eng_ger(guessed, german_words, display_eng, wrong_guesses):
             wrong_guesses += 1
             print("Falsch ❌")
             sound_wrong.play()
-            print(f"Falsche Versuche: {wrong_guesses}/2")
+            print(f"Falsche Versuche: {wrong_guesses}/{Settings.trials}")
 
             if wrong_guesses >= trials:
                 print("⚠️ Zu viele falsche Vermutungen!")
