@@ -1,21 +1,20 @@
 import random
 from word_list import *
 from speech_output import audio_files_prog
-import pygame
 from main_settings import *
 
 settings=Settings()
 trials=Settings.trials
 
-pygame.init()
-# Initialize the mixer
-pygame.mixer.init()
 # Load sounds
-sound_correct = pygame.mixer.Sound("correct-156911.mp3")
-sound_correct.set_volume(Settings.volume_limit)
-sound_wrong = pygame.mixer.Sound("error-010-206498.mp3")
-sound_wrong.set_volume(Settings.volume_limit)
-
+sound_correct=Settings.sound_correct
+sound_wrong=Settings.sound_wrong
+if Settings.sound_enable:
+    sound_correct.set_volume(Settings.volume_limit)
+    sound_wrong.set_volume(Settings.volume_limit)
+else:
+    sound_correct.set_volume(0.0)
+    sound_wrong.set_volume(0.0)
 
 def selected_range():
     a = input('Want to work on all words (Y/N) ').lower().strip()
@@ -143,17 +142,17 @@ def quiz_eng_ger(guessed, german_words, display_eng, wrong_guesses):
                 correct_answers += 1
                 guessed.add(ger)
                 matched = True
-
-                if answer == correct_word:
-                    article = input("Könnten Sie auch den Artikel einfügen? ").lower().strip()
-                    total_attempts += 1
-                    if article == correct_article:
-                        print(f'😄 Ihr Artikel ist richtig: {ger}')
-                        sound_correct.play()
-                        correct_answers += 1
-                    else:
-                        print(f'Nein ❌,die richtige Antwort ist: {ger}')
-                        sound_wrong.play()
+                if Settings.show_article:
+                    if answer == correct_word:
+                        article = input("Könnten Sie auch den Artikel einfügen? ").lower().strip()
+                        total_attempts += 1
+                        if article == correct_article:
+                            print(f'😄 Ihr Artikel ist richtig: {ger}')
+                            sound_correct.play()
+                            correct_answers += 1
+                        else:
+                            print(f'Nein ❌,die richtige Antwort ist: {ger}')
+                            sound_wrong.play()
                 break
 
         if not matched:
