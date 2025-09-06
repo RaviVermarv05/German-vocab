@@ -302,7 +302,10 @@ for eng_terms, ger_list in raw_vocab.items():
         vocab_pairs.append((eng_terms, ger))
 
 # Get all unique English term tuples
-remaining = list(set(eng for eng, _ in vocab_pairs))
+remaining = []
+for eng, _ in vocab_pairs:
+    if eng not in remaining:  # keep order, avoid duplicates
+        remaining.append(eng)
 completed = set()
 
 
@@ -316,10 +319,16 @@ def logic():
             result_in_german(rate)
         return False
 
-    while True:
-        random_engs = random.choice(remaining)
-        if random_engs not in completed:
-            break
+    if Settings.shuffle_mode:
+        while True:
+            random_engs = random.choice(remaining)
+            if random_engs not in completed:
+                break
+    else:
+        for eng in remaining:
+            if eng not in completed:
+                random_engs = eng
+                break
 
     german_words = [ger for engs, ger in vocab_pairs if engs == random_engs]
     guessed = set()

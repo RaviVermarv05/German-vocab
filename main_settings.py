@@ -10,5 +10,6 @@ class Settings:
     sound_enable=True
     sound_correct = pygame.mixer.Sound("correct-156911.mp3")
     sound_wrong = pygame.mixer.Sound("error-010-206498.mp3")
+    shuffle_mode=False
 
 
