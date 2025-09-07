@@ -74,11 +74,12 @@ def result_in_german(rate):
 
 
 def rasult_in_eng(rate):
-    print(f"\n{'🎉' * 5} You've completed all the words! {'🎉' * 5}")
-    print(f"✅ Success rate: {rate}% ({correct_answers}/{total_attempts})")
+    Eng_feedback1=Eng_feedback(rate,correct_answers,total_attempts)
+    print(Eng_feedback.congrats_msg)
+    print(Eng_feedback1.success_rate())
 
     if int(rate) != 100 and len(practice_words) != 0:
-        print(f"you need to work on:")
+        print(Eng_feedback.practice_head)
 
         for i in practice_words:
             if i == ' ':
@@ -87,7 +88,7 @@ def rasult_in_eng(rate):
                 print(f"* {i}")
 
     elif int(rate) == 100:
-        print("😍🤩🥳CONGRATULATIONS😍🤩🥳")
+        print(Eng_feedback.all_complete)
 
 
 def total_german_words():
@@ -95,7 +96,8 @@ def total_german_words():
     for i in raw_vocab:
         for _ in raw_vocab[i]:
             v += 1
-    print(f"till now we have covered {v} german words")
+    Total_german_words1=Total_german_words(v)
+    print(Total_german_words1.total_msg())
 
 
 def quiz_ger_eng(german_words, random_engs, wrong_guesses, display_eng):
