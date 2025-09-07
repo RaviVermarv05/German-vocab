@@ -54,9 +54,11 @@ def apply_range_filter(vocab_dict, start_range, end_range):
     # Convert back to dictionary
     return dict(filtered_items)
 
+
 def result_in_german(rate):
+    German_feedback1=German_feedback(rate,correct_answers,total_attempts)
     print(German_feedback.congrats_msg)
-    print(f"✅ Erfolgsquote: {rate}% ({correct_answers}/{total_attempts})")
+    print(German_feedback1.Erfolgsquote())
 
     if int(rate) != 100 and len(practice_words) != 0:
         print(German_feedback.practice_head)

@@ -10,3 +10,11 @@ class German_feedback:
     congrats_msg=f"\n{'🎉' * 5} Du hast alle Wörter geschafft! {'🎉' * 5}"
     all_complete="😍🤩🥳 HERZLICHEN GLÜCKWUNSCH! 😍🤩🥳"
     practice_head="Du solltest an folgenden Wörtern arbeiten:"
+
+    def __init__(self,rate,correct_answers,total_attempts):
+        self.rate=rate
+        self.correct_answers=correct_answers
+        self.total_attempts=total_attempts
+
+    def Erfolgsquote(self):
+        return f"✅ Erfolgsquote: {self.rate}% ({self.correct_answers}/{self.total_attempts})"
