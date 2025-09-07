@@ -108,18 +108,19 @@ def quiz_ger_eng(german_words, random_engs, wrong_guesses, display_eng):
         total_attempts += 1
         if answer in [e.lower().strip() for e in random_engs]:
             sound_correct.play()
-            print("Right ✅")
+            print(Quiz_ger_eng.right_ans)
             correct_answers += 1
             break
         else:
-            print("False ❌")
+            print(Quiz_ger_eng.wrong_ans)
             sound_wrong.play()
-            print(f"Incorrect attempts: {wrong_guesses + 1}/2")
+            Quiz_ger_eng1=Quiz_ger_eng(wrong_guesses)
+            print(Quiz_ger_eng1.incorrect_attempts())
             wrong_guesses += 1
     else:
-        print("⚠️ Too many incorrect guesses!")
+        print(Quiz_ger_eng.incorrect_head)
         sound_wrong.play()
-        print("✅ Correct answers:")
+        print(Quiz_ger_eng.correct_head)
         print(f"- {display_eng}")
         for g in german_words:
             practice_words.append(g)

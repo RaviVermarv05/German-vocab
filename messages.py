@@ -40,3 +40,15 @@ class Total_german_words:
 
     def total_msg(self):
         return f"till now we have covered {self.v} german words"
+
+class Quiz_ger_eng:
+    right_ans="Right ✅"
+    wrong_ans="False ❌"
+    incorrect_head="⚠️ Too many incorrect guesses!"
+    correct_head="✅ Correct answers:"
+
+    def __init__(self,wrong_guesses):
+        self.wrong_guesses=wrong_guesses
+
+    def incorrect_attempts(self):
+        return f"Incorrect attempts: {self.wrong_guesses + 1}/2"
