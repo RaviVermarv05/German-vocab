@@ -55,7 +55,11 @@ class Quiz_ger_eng:
 
 class Quiz_eng_ger:
     right_ans="Gut gemacht ✅"
+    wrong_ans = "Falsch ❌"
     enter_right_article="Könnten Sie auch den Artikel einfügen? "
+    incorrect_head="⚠️ Zu viele falsche Vermutungen!"
+    correct_head="✅ Richtige Antworten:"
+
     def __init__(self,ger):
         self.ger=ger
 

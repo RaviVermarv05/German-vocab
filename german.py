@@ -164,14 +164,14 @@ def quiz_eng_ger(guessed, german_words, display_eng, wrong_guesses):
 
         if not matched:
             wrong_guesses += 1
-            print("Falsch ❌")
+            print(Quiz_eng_ger.wrong_ans)
             sound_wrong.play()
             print(f"Falsche Versuche: {wrong_guesses}/{Settings.trials}")
 
             if wrong_guesses >= trials:
-                print("⚠️ Zu viele falsche Vermutungen!")
+                print(Quiz_eng_ger.incorrect_head)
                 sound_wrong.play()
-                print("✅ Richtige Antworten:")
+                print(Quiz_eng_ger.correct_head)
                 for g in german_words:
                     print(f"- {g}")
                     practice_words.append(g)
