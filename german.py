@@ -2,6 +2,7 @@ import random
 from word_list import *
 from speech_output import audio_files_prog
 from main_settings import *
+from messages import *
 
 settings=Settings()
 trials=Settings.trials
@@ -17,23 +18,23 @@ else:
     sound_wrong.set_volume(0.0)
 
 def selected_range():
-    a = input('Want to work on all words (Y/N) ').lower().strip()
+    a = input(Range_message.range_selection).lower().strip()
     while True:
         if a in ['all', 'yes', 'y']:
             return None, None  # return None for full range
         elif a in ['no', 'n']:
             while True:
                 try:
-                    starting_range = int(input('Enter starting range: ').strip())
-                    ending_range = int(input('Enter ending range: ').strip())
+                    starting_range = int(input(Range_message.start_range).strip())
+                    ending_range = int(input(Range_message.end_range).strip())
                     if starting_range > 0 and ending_range >= starting_range:
                         return starting_range, ending_range
                     else:
-                        print("Invalid range! Starting range must be > 0 and ending range >= starting range")
+                        print(Range_message.invalid_range)
                 except ValueError:
-                    print("Please enter valid numbers!")
+                    print(Range_message.valid_range)
         else:
-            a = input('Please enter Y/N: ').lower().strip()
+            a = input(Range_message.other).lower().strip()
 
 
 def apply_range_filter(vocab_dict, start_range, end_range):
@@ -54,11 +55,11 @@ def apply_range_filter(vocab_dict, start_range, end_range):
     return dict(filtered_items)
 
 def result_in_german(rate):
-    print(f"\n{'🎉' * 5} Du hast alle Wörter geschafft! {'🎉' * 5}")
+    print(German_feedback.congrats_msg)
     print(f"✅ Erfolgsquote: {rate}% ({correct_answers}/{total_attempts})")
 
     if int(rate) != 100 and len(practice_words) != 0:
-        print("Du solltest an folgenden Wörtern arbeiten:")
+        print(German_feedback.practice_head)
 
         for i in practice_words:
             if i == ' ':
@@ -67,7 +68,7 @@ def result_in_german(rate):
                 print(f"* {i}")
 
     elif int(rate) == 100:
-        print("😍🤩🥳 HERZLICHEN GLÜCKWUNSCH! 😍🤩🥳")
+        print(German_feedback.all_complete)
 
 
 def rasult_in_eng(rate):
