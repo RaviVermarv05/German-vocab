@@ -7,7 +7,7 @@ class Settings:
 
     # Quiz Settings
     trials=3 #1 being the lowest
-    show_article=False
+    show_article=True
     shuffle_mode=True
 
     # Sound & Audio

@@ -142,7 +142,7 @@ def quiz_eng_ger(guessed, german_words, display_eng, wrong_guesses):
             correct_article = ger[0:3].lower()
 
             if answer == ger.lower().strip() or (answer == correct_word and answer != ''):
-                print("Gut gemacht ✅")
+                print(Quiz_eng_ger.right_ans)
                 sound_correct.play()
 
                 correct_answers += 1
@@ -150,14 +150,15 @@ def quiz_eng_ger(guessed, german_words, display_eng, wrong_guesses):
                 matched = True
                 if Settings.show_article:
                     if answer == correct_word:
-                        article = input("Könnten Sie auch den Artikel einfügen? ").lower().strip()
+                        article = input(Quiz_eng_ger.enter_right_article).lower().strip()
                         total_attempts += 1
+                        Quiz_eng_ger1=Quiz_eng_ger(ger)
                         if article == correct_article:
-                            print(f'😄 Ihr Artikel ist richtig: {ger}')
+                            print(Quiz_eng_ger1.artikel_ist_richtig())
                             sound_correct.play()
                             correct_answers += 1
                         else:
-                            print(f'Nein ❌,die richtige Antwort ist: {ger}')
+                            print(Quiz_eng_ger1.artikel_ist_falsch())
                             sound_wrong.play()
                 break
 

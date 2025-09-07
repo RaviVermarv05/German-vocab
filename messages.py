@@ -52,3 +52,15 @@ class Quiz_ger_eng:
 
     def incorrect_attempts(self):
         return f"Incorrect attempts: {self.wrong_guesses + 1}/2"
+
+class Quiz_eng_ger:
+    right_ans="Gut gemacht ✅"
+    enter_right_article="Könnten Sie auch den Artikel einfügen? "
+    def __init__(self,ger):
+        self.ger=ger
+
+    def artikel_ist_richtig(self):
+        return f'😄 Ihr Artikel ist richtig: {self.ger}'
+
+    def artikel_ist_falsch(self):
+        return f'Nein ❌,die richtige Antwort ist: {self.ger}'
