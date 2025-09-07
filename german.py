@@ -20,9 +20,9 @@ else:
 def selected_range():
     a = input(Range_message.range_selection).lower().strip()
     while True:
-        if a in ['all', 'yes', 'y']:
+        if a in Range_message.selection_yes:
             return None, None  # return None for full range
-        elif a in ['no', 'n']:
+        elif a in Range_message.selection_no:
             while True:
                 try:
                     starting_range = int(input(Range_message.start_range).strip())

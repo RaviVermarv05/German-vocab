@@ -1,5 +1,7 @@
 class Range_message:
     range_selection='Want to work on all words (Y/N) '
+    selection_yes=['all', 'yes', 'y']
+    selection_no=['no', 'n']
     start_range='Enter starting range: '
     end_range='Enter ending range: '
     invalid_range="Invalid range! Starting range must be > 0 and ending range >= starting range"

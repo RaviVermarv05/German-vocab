@@ -6,7 +6,7 @@ pygame.mixer.init()
 class Settings:
 
     # Quiz Settings
-    trials=2 #1 being the lowest
+    trials=1 #1 being the lowest
     show_article=False
     shuffle_mode=True
 
