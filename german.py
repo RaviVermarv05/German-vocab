@@ -3,6 +3,8 @@ from word_list import *
 from speech_output import audio_files_prog
 from main_settings import *
 from messages import *
+from trial import *
+from description_ai import run_context_mode
 
 settings=Settings()
 trials=Settings.trials
@@ -230,9 +232,12 @@ def search_word(raw_vocab):
                     print('\n')
 
         if not found:
-            print('❌ Word not found')
-            sound_wrong.play()
-
+            c=input('❌ Word not found, Want to search online Dictionary? ')
+            if c.lower().strip() in ['yes','y','ja']:
+                Pons_result=Search_in_Pons(search)
+                Pons_result.wed()
+            else:
+                sound_wrong.play()
 
 print('''Welcome to German Vocabulary!
 Choose Mode:
@@ -240,7 +245,9 @@ Choose Mode:
 2 - German to English
 3 - search
 4 - review
-5 - audio''')
+5 - audio
+6 - context mode
+''')
 
 correct_answers = 0
 total_attempts = 0
@@ -264,7 +271,7 @@ chapters = {
 while True:
     mode_input = input("Enter your choice: ").strip()
 
-    if mode_input in ("1", "2", "3", "4", "5"):
+    if mode_input in ("1", "2", "3", "4", "5","6"):
         mode = int(mode_input)
         break
     elif mode_input.lower().strip() in ["show", "review"]:
@@ -277,7 +284,7 @@ while True:
 # Initialize range variables
 start_range, end_range = None, None
 
-if mode in [1, 2, 4, 5]:
+if mode in [1, 2, 4, 5, 6]:
     # Ask user for chapter no
     while True:
         chapter_number = input("Enter chapter number 1-12 ").strip()
@@ -365,7 +372,9 @@ def logic():
         review(chapters, chapter_number, start_range, end_range)
     elif mode == 5:
         audio_files_prog(raw_vocab)
-
+    elif mode == 6:
+        run_context_mode(raw_vocab)
+        return False
 
 # Run the game loop
 game_is_on = True
