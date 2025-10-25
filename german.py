@@ -4,6 +4,7 @@ from speech_output import audio_files_prog
 from main_settings import *
 from messages import *
 from trial import *
+from logics import *
 from description_ai import run_context_mode
 
 import pandas as pd
@@ -11,7 +12,6 @@ from sklearn.feature_extraction.text import CountVectorizer
 from sklearn.naive_bayes import MultinomialNB
 import joblib
 import os
-
 
 settings=Settings()
 trials=Settings.trials
@@ -282,35 +282,7 @@ def review(chapters, chapter_number, start_range=None, end_range=None):
             print("\n")
 
 
-def search_word(raw_vocab):
-    while True:
-        search = input("\nenter the word: ").lower().strip()
 
-        if search in ["exit now", "quit now"]:
-            return
-        found = False
-        for i in raw_vocab:
-            for j in i:
-                if search == j.lower().strip():
-                    for k in raw_vocab[i]:
-                        found = True
-                        print(f"* {k}")
-                    print('\n')
-            for m in raw_vocab[i]:
-                if search == m.lower().strip() or (
-                        search == m[4:].lower().strip() and m[0:4].lower() in ['der ', 'die ', 'das ']):
-                    for l in i:
-                        found = True
-                        print(f"* {l} - {m}")
-                    print('\n')
-
-        if not found:
-            c=input('❌ Word not found, Want to search online Dictionary? ')
-            if c.lower().strip() in ['yes','y','ja']:
-                Pons_result=Search_in_Pons(search)
-                Pons_result.wed()
-            else:
-                sound_wrong.play()
 
 print('''Welcome to German Vocabulary!
 Choose Mode:
