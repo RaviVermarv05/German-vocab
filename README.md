@@ -1,8 +1,3 @@
-
-![image alt](https://github.com/Mankind001/German-vocab/blob/5595d9d0eccbb7bbf7d0597c1d401bc45116e608/Screenshot%202025-06-27%20at%2001.14.04.png)
-
-
-
 # 🍓 Rememberry — AI-Powered German Vocabulary Trainer
 
 
@@ -124,5 +119,6 @@ Planned updates and upcoming features for **Rememberry**:
 - [ ] Complete Android UI integration  
 - [ ] Add speech recognition for pronunciation practice  n  
 - [ ] Expand dataset to include *Netzwerk B2* and *C1* vocabulary
+- [ ] Perform full **code cleanup, optimization, and modular arrangement**
 
 
