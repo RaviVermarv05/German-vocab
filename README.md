@@ -68,3 +68,61 @@ Rememberry/
 ├── trial.py # Pons online dictionary
 ├── logics.py # Helper functions for search & review
 ├── requirements.txt # Dependencies
+
+
+## 🔗 Get API Keys
+
+To enable AI-based features and dictionary lookups, you’ll need to create API keys.
+
+- **GROQ API:** [https://console.groq.com/keys](https://console.groq.com/keys)  
+- **PONS Dictionary API:** [https://en.pons.com/open_dict/public_api/secret](https://en.pons.com/open_dict/public_api/secret)
+
+---
+
+## 🧠 Machine Learning Component
+
+**Rememberry** uses a self-learning **Naive Bayes classifier** to analyze and adapt to user mistakes.  
+Each mistake is logged and used to retrain the model (`error_model.pkl`) for smarter future quizzes.
+
+### Error Types Detected
+- `wrong_article`
+- `spelling_error`
+- `wrong_translation`
+
+---
+
+## 🗣️ Audio Pronunciation
+
+- Integrated **text-to-speech** system plays native-like pronunciation.  
+- Control **volume** and **sound preferences** in `main_settings.py`.
+
+---
+## ▶️ Run Rememberry
+
+To start the console version, run:
+
+```bash
+python3 german.py
+```
+
+## 🧾 Requirements
+
+Below are the core Python dependencies required to run **Rememberry**:
+
+```txt
+pandas
+scikit-learn
+joblib
+pygame
+python-dotenv
+```
+
+## 🚀 Future Enhancements
+
+Planned updates and upcoming features for **Rememberry**:
+
+- [ ] Complete Android UI integration  
+- [ ] Add speech recognition for pronunciation practice  n  
+- [ ] Expand dataset to include *Netzwerk B2* and *C1* vocabulary
+
+
