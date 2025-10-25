@@ -6,6 +6,13 @@ from messages import *
 from trial import *
 from description_ai import run_context_mode
 
+import pandas as pd
+from sklearn.feature_extraction.text import CountVectorizer
+from sklearn.naive_bayes import MultinomialNB
+import joblib
+import os
+
+
 settings=Settings()
 trials=Settings.trials
 
@@ -101,6 +108,64 @@ def total_german_words():
     Total_german_words1=Total_german_words(v)
     print(Total_german_words1.total_msg())
 
+class ErrorAnalyzer:
+    def __init__(self, model_path="error_model.pkl"):
+        self.model_path = model_path
+        self.vectorizer = CountVectorizer()
+        self.model = None
+
+        # Load model if it exists
+        if os.path.exists(model_path):
+            try:
+                self.model, self.vectorizer = joblib.load(model_path)
+            except Exception:
+                self.model = None
+
+        # Initialize an empty DataFrame for tracking
+        self.data = pd.DataFrame(columns=["user_answer", "correct_answer", "error_type"])
+
+    def classify_error(self, user_answer, correct_answer):
+        """Simple heuristic + ML classification"""
+        if user_answer.strip() == "":
+            return "no_answer"
+        elif user_answer.lower() == correct_answer.lower():
+            return "correct"
+        elif user_answer.split(" ")[0] in ["der", "die", "das"] and correct_answer.split(" ")[0] in ["der", "die", "das"]:
+            if user_answer.split(" ")[0] != correct_answer.split(" ")[0]:
+                return "wrong_article"
+        elif len(user_answer.split()) == 1 and len(correct_answer.split()) == 1:
+            return "spelling_error"
+        else:
+            return "wrong_translation"
+
+    def log_error(self, user_answer, correct_answer):
+        etype = self.classify_error(user_answer, correct_answer)
+        new_entry = pd.DataFrame({"user_answer": [user_answer], "correct_answer": [correct_answer], "error_type": [etype]})
+        self.data = pd.concat([self.data, new_entry], ignore_index=True)
+
+        # Keep the data small and retrain occasionally
+        if len(self.data) > 20:
+            self.train_model()
+
+    def train_model(self):
+        """Train/update a Naive Bayes classifier"""
+        X = self.vectorizer.fit_transform(self.data["user_answer"])
+        y = self.data["error_type"]
+        model = MultinomialNB()
+        model.fit(X, y)
+        self.model = model
+        joblib.dump((self.model, self.vectorizer), self.model_path)
+        print("✅ Error model updated with latest mistakes.")
+
+    def predict_error(self, user_answer):
+        """Predict likely error type (if trained)"""
+        if self.model:
+            vec = self.vectorizer.transform([user_answer])
+            return self.model.predict(vec)[0]
+        else:
+            return "unknown"
+
+
 
 def quiz_ger_eng(german_words, random_engs, wrong_guesses, display_eng):
     global total_attempts, correct_answers
@@ -116,6 +181,10 @@ def quiz_ger_eng(german_words, random_engs, wrong_guesses, display_eng):
         else:
             print(Quiz_ger_eng.wrong_ans)
             sound_wrong.play()
+
+            # Log the error
+            error_analyzer.log_error(answer, display_eng)
+
             Quiz_ger_eng1=Quiz_ger_eng(wrong_guesses)
             print(Quiz_ger_eng1.incorrect_attempts())
             wrong_guesses += 1
@@ -168,6 +237,10 @@ def quiz_eng_ger(guessed, german_words, display_eng, wrong_guesses):
             wrong_guesses += 1
             print(Quiz_eng_ger.wrong_ans)
             sound_wrong.play()
+
+            # Log the error
+            error_analyzer.log_error(answer, "/".join(german_words))
+
             print(f"Falsche Versuche: {wrong_guesses}/{Settings.trials}")
 
             if wrong_guesses >= trials:
@@ -252,9 +325,11 @@ Choose Mode:
 correct_answers = 0
 total_attempts = 0
 practice_words = []
+error_analyzer = ErrorAnalyzer()
+
 chapters = {
-    # 1: chapter_one,
-    # 2: chapter_two,
+    1: chapter_one,
+    2: chapter_two,
     # 3: chapter_three,
     # 4: chapter_four,
     # 5: chapter_five,
@@ -306,7 +381,7 @@ if mode in [1, 2, 4, 5, 6]:
     else:
         print(f"📚 Working on all words ({len(raw_vocab)} word pairs)")
 else:
-    raw_vocab = chapter_eleven | chapter_twelve | chapter_ten | chapter_nine | chapter_eight
+    raw_vocab = chapter_eleven | chapter_twelve | chapter_ten | chapter_nine | chapter_eight | chapter_one | chapter_two
     total_german_words()
 
 # Flatten to list of ((eng_terms), german_word) pairs
@@ -380,3 +455,11 @@ def logic():
 game_is_on = True
 while game_is_on:
     game_is_on = logic()
+
+if not game_is_on:
+    if len(error_analyzer.data) > 0:
+        print("\n🧩 Error Pattern Summary:")
+        summary = error_analyzer.data["error_type"].value_counts()
+        for err, count in summary.items():
+            print(f"  - {err}: {count} times")
+        print("\n Tip: The app will adjust practice questions based on these errors next time.")
