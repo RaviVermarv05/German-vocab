@@ -121,4 +121,7 @@ Planned updates and upcoming features for **Rememberry**:
 - [ ] Expand dataset to include *Netzwerk B2* and *C1* vocabulary
 - [ ] Perform full **code cleanup, optimization, and modular arrangement**
 
-
+## Screenshot
+<p>
+  <img src="https://github.com/RaviVermarv05/German-vocab/blob/master/Screenshot%202025-10-25%20at%2008.45.12.png?raw=true" />
+</p>
