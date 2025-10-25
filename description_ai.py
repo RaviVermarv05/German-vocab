@@ -1,5 +1,15 @@
 import traceback
+import os
+# print()
 
+
+from dotenv import load_dotenv
+import os
+
+load_dotenv(dotenv_path=".env")  # Explicit pathimport os
+
+
+# print("Loaded key:", os.getenv("GROQ_API_KEY"))
 from groq import Groq
 
 # Initialize OpenAI client (with your OpenRouter key)
@@ -13,7 +23,8 @@ def get_ai_description(word):
         f"Respond only with the description, no examples or quotes. "
     )
     try:
-        client = Groq(api_key="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")
+        client = os.getenv("GROQ_API_KEY")
+
 
         chat_completion = client.chat.completions.create(
             messages=[
