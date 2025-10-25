@@ -1,5 +1,11 @@
 import requests
 import re
+from dotenv import load_dotenv
+import os
+
+load_dotenv()  # Loads the .env file
+
+
 
 class PONSDictionary:
     """PONS German-English Dictionary Client"""
@@ -102,7 +108,7 @@ class PONSDictionary:
 class Search_in_Pons:
     """Online dictionary search wrapper"""
 
-    API_KEY = "5e8f5fb5187f59292b7448a49a204fe6283182c1ff258a482c091f552164dc97"
+    API_KEY = os.getenv("API_KEY")
 
     def __init__(self, search):
         self.search = search.strip()
