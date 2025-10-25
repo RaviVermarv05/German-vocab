@@ -1,0 +1,6 @@
+# Ignore environment and system files
+.env
+__pycache__/
+*.pyc
+.idea/
+.DS_Store
