@@ -4,5 +4,6 @@ __pycache__/
 *.pyc
 .idea/
 .DS_Store
-
+*.png
+*.mp3
 images/
