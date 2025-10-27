@@ -5,6 +5,7 @@ import platform
 import threading
 import speech_recognition as sr
 
+
 pause_signal = False
 
 def audio_files_prog(data):
