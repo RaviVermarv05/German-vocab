@@ -97,7 +97,7 @@ Each mistake is logged and used to retrain the model (`error_model.pkl`) for sma
 To start the console version, run:
 
 ```bash
-python3 german.py
+python3 main.py
 ```
 
 ## 🧾 Requirements
