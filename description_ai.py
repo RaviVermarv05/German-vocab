@@ -4,7 +4,7 @@ from dotenv import load_dotenv
 from groq import Groq
 
 # ✅ Load your .env file
-load_dotenv()
+load_dotenv(override=True)
 
 def get_ai_description(word):
     """Generate a short English description for a given German word."""
@@ -18,14 +18,21 @@ def get_ai_description(word):
 
     try:
         api_key = os.getenv("GROQ_API_KEY")
+        # print("API key loaded:", bool(api_key))
+        # print("API key prefix:", api_key[:10] if api_key else None)
         if not api_key:
             raise ValueError("GROQ_API_KEY not found. Check your .env file.")
 
         # ✅ Initialize the client
         client = Groq(api_key=api_key)
+        # models = client.models.list()
+        #
+        # print("\nAvailable models:")
+        # for model in models.data:
+        #     print(model.id)
 
         chat_completion = client.chat.completions.create(
-            model="llama-3.3-70b-versatile",
+            model="openai/gpt-oss-20b",
             messages=[
                 {"role": "system", "content": "You are a helpful assistant for German learners."},
                 {"role": "user", "content": prompt}

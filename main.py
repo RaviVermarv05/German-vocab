@@ -1,4 +1,6 @@
 import random
+
+import verb
 from word_list import *
 from speech_output import audio_files_prog
 from main_settings import *
@@ -292,6 +294,7 @@ Choose Mode:
 4 - review
 5 - audio
 6 - context mode
+7 - verbs
 ''')
 
 correct_answers = 0
@@ -318,7 +321,7 @@ chapters = {
 while True:
     mode_input = input("Enter your choice: ").strip()
 
-    if mode_input in ("1", "2", "3", "4", "5","6"):
+    if mode_input in ("1", "2", "3", "4", "5","6","7"):
         mode = int(mode_input)
         break
     elif mode_input.lower().strip() in ["show", "review"]:
@@ -422,6 +425,8 @@ def logic():
     elif mode == 6:
         run_context_mode(raw_vocab)
         return False
+    elif mode==7:
+        verb.main()
 
 # Run the game loop
 game_is_on = True
