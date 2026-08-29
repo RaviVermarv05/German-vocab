@@ -87,6 +87,7 @@ def audio_files_prog(data):
             wait_if_paused()
 
             english_words = ", ".join(key)
+            print("\n")
             print(f"English: {english_words}")
             safe_tts_save(english_words, 'en', "temp.mp3")
             play_audio("temp.mp3")

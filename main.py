@@ -1,11 +1,6 @@
-import random
 
-import verb
 from word_list import *
 from speech_output import audio_files_prog
-from main_settings import *
-from messages import *
-from trial import *
 from logics import *
 from description_ai import run_context_mode
 
@@ -28,42 +23,6 @@ else:
     sound_correct.set_volume(0.0)
     sound_wrong.set_volume(0.0)
 
-def selected_range():
-    a = input(Range_message.range_selection).lower().strip()
-    while True:
-        if a in Range_message.selection_yes:
-            return None, None  # return None for full range
-        elif a in Range_message.selection_no:
-            while True:
-                try:
-                    starting_range = int(input(Range_message.start_range).strip())
-                    ending_range = int(input(Range_message.end_range).strip())
-                    if starting_range > 0 and ending_range >= starting_range:
-                        return starting_range, ending_range
-                    else:
-                        print(Range_message.invalid_range)
-                except ValueError:
-                    print(Range_message.valid_range)
-        else:
-            a = input(Range_message.other).lower().strip()
-
-
-def apply_range_filter(vocab_dict, start_range, end_range):
-    """Filter vocabulary dictionary based on range selection"""
-    if start_range is None or end_range is None:
-        return vocab_dict
-
-    # Convert dictionary items to a list to apply range
-    vocab_items = list(vocab_dict.items())
-
-    # Apply range filter (adjust indices for 0-based indexing)
-    start_idx = max(0, start_range - 1)
-    end_idx = min(len(vocab_items), end_range)
-
-    filtered_items = vocab_items[start_idx:end_idx]
-
-    # Convert back to dictionary
-    return dict(filtered_items)
 
 
 def result_in_german(rate):
@@ -83,7 +42,6 @@ def result_in_german(rate):
     elif int(rate) == 100:
         print(German_feedback.all_complete)
 
-
 def rasult_in_eng(rate):
     Eng_feedback1=Eng_feedback(rate,correct_answers,total_attempts)
     print(Eng_feedback.congrats_msg)
@@ -100,7 +58,6 @@ def rasult_in_eng(rate):
 
     elif int(rate) == 100:
         print(Eng_feedback.all_complete)
-
 
 def total_german_words():
     v = 0
@@ -256,36 +213,6 @@ def quiz_eng_ger(guessed, german_words, display_eng, wrong_guesses):
                 break
 
 
-def review(chapters, chapter_number, start_range=None, end_range=None):
-    s_no = 0
-    print("\n")
-
-    # Get the chapter vocabulary and apply range if specified
-    chapter_vocab = chapters[int(chapter_number)]
-    if start_range is not None and end_range is not None:
-        chapter_vocab = apply_range_filter(chapter_vocab, start_range, end_range)
-        print(f"📝 Showing range {start_range}-{end_range} from Chapter {chapter_number}")
-
-    for i in chapter_vocab:
-        s_no += 1
-        capitalized_nouns = []
-
-        english = ", ".join(i)
-        german_list = chapter_vocab[i]
-        for word in german_list:
-            if word[0:4].lower() in ['der ', 'die ', 'das ']:
-                capitalized_nouns.append(word[0:3].lower().strip() + word[3] + word[4].capitalize() + word[5:].lower())
-            else:
-                capitalized_nouns = german_list
-
-        german = ", ".join(capitalized_nouns)
-        print(f"{s_no}. {german} -⟶ {english}")
-        if s_no % 10 == 0:
-            print("\n")
-
-
-
-
 print('''Welcome to German Vocabulary!
 Choose Mode:
 1 - English to German
@@ -355,6 +282,7 @@ if mode in [1, 2, 4, 5, 6]:
         print(f"📚 Working on range {start_range}-{end_range} ({len(raw_vocab)} word pairs)")
     else:
         print(f"📚 Working on all words ({len(raw_vocab)} word pairs)")
+
 else:
     raw_vocab = chapter_eleven | chapter_twelve | chapter_ten | chapter_nine | chapter_eight | chapter_one | chapter_two
     total_german_words()
@@ -373,49 +301,39 @@ for eng, _ in vocab_pairs:
 completed = set()
 
 
+def run_vocab_round(random_engs, display_eng):
+    """Handle a single English<->German quiz round for the given word."""
+    german_words = [ger for eng, ger in vocab_pairs if eng == random_engs]
+
+    if mode == 2:  # German → English
+        print("\n📘 Enter the appropriate English word")
+        quiz_ger_eng(german_words, random_engs, wrong_guesses=0, display_eng=display_eng)
+    elif mode == 1:  # English → German
+        word_label = "deutsches Wort" if len(german_words) == 1 else "deutsche Wörter"
+        print(f"\n📘 Es gibt {len(german_words)} {word_label}.")
+        quiz_eng_ger(guessed=set(), german_words=german_words,
+                     display_eng=display_eng, wrong_guesses=0)
+
+    completed.add(random_engs)
+
 def logic():
     global correct_answers, total_attempts, practice_words
-    if len(completed) == len(remaining):
-        rate = round((correct_answers / total_attempts) * 100, 2) if total_attempts else 0
-        if mode == 2:
-            rasult_in_eng(rate)
-        elif mode == 1:
-            result_in_german(rate)
-        return False
 
-    if Settings.shuffle_mode:
-        while True:
-            random_engs = random.choice(remaining)
-            if random_engs not in completed:
-                break
-    else:
-        for eng in remaining:
-            if eng not in completed:
-                random_engs = eng
-                break
+    # Modes 1 & 2 are the word-guessing quiz; everything else dispatches elsewhere
+    if mode in (1, 2):
+        if len(completed) == len(remaining):
+            rate = round((correct_answers / total_attempts) * 100, 2) if total_attempts else 0
+            if mode == 2:
+                result_in_english(rate)
+            else:
+                result_in_german(rate)
+            return False
 
-    german_words = [ger for engs, ger in vocab_pairs if engs == random_engs]
-    guessed = set()
-    wrong_guesses = 0
-
-    display_eng = " / ".join(random_engs)
-
-    if mode == 2:
-        # Mode 2: German → English
-        print(f"\n📘 Enter the appropriate english word")
-        quiz_ger_eng(german_words, random_engs, wrong_guesses, display_eng)
-        completed.add(random_engs)
+        random_engs = pick_next_word(remaining, completed)
+        display_eng = " / ".join(random_engs)
+        run_vocab_round(random_engs, display_eng)
         return True
-    elif mode == 1:
-        # Mode 1: English → German
-        len_german_words = len(german_words)
-        if len_german_words == 1:
-            print(f"\n📘Es gibt {len_german_words} deutsches Wort.")
-        else:
-            print(f"\n📘Es gibt {len_german_words} deutsche Wörter.")
-        quiz_eng_ger(guessed, german_words, display_eng, wrong_guesses)
-        completed.add(random_engs)
-        return True
+
     elif mode == 3:
         search_word(raw_vocab)
     elif mode == 4:
@@ -425,8 +343,8 @@ def logic():
     elif mode == 6:
         run_context_mode(raw_vocab)
         return False
-    elif mode==7:
-        verb.main()
+    elif mode == 7:
+        handle_verb_mode()
 
 # Run the game loop
 game_is_on = True
