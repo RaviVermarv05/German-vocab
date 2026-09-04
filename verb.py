@@ -1,4 +1,6 @@
 import random
+from load_sound import *
+from messages import Quiz_ger_eng
 
 
 def practice_verbs(verbs):
@@ -82,13 +84,17 @@ def practice_verbs(verbs):
 
             if user_answer == correct_answer:
 
-                print("✓ Correct!")
+                print(Quiz_ger_eng.right_ans)
+                sound_correct.play()
+
                 correct += 1
 
             else:
 
-                print("✗ Wrong!")
-                print(f"Correct answer: {verb_data[field]}")
+                print(Quiz_ger_eng.wrong_ans)
+                sound_wrong.play()
+
+                print(f"⚠️ Correct answer: {verb_data[field]}")
 
                 wrong += 1
 

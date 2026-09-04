@@ -50,7 +50,7 @@ chapter_one = {
     ("kids zone", "children area"): ["das Kinderland", "der Kinderbereich"],
     ("to use", "to take advantage of"): ["nutzen", "verwenden", "benutzen"],
     ("pure", ): ["pur", "rein"],
-    ("to clean", ): ["reinigen", "putzen", "sauber machen"],
+    ("to clean", ): ["reinigen", "putzen", "sauber machen", "rein halten"],
     ("top chef", ): ["der Top-Koch"],
     ("to spoil", "to pamper"): ["verwöhnen"],
 
@@ -92,7 +92,7 @@ chapter_one = {
     ("recovered",): ["erholt"],
     ("in case", "if"): ["falls", "wenn"],
     ("to believe", "to grasp"): ["fassen", "begreifen"],
-    ("to look forward to",): ["sich freuen (auf + Akk.)"],
+    ("to look forward to",): ["sich freuen (auf + Akk)"],
     ("cheesemaking factory", "dairy"): ["die Käserei"],
     ("dairy",):["die Molkerei"],
 

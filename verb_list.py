@@ -1,6 +1,6 @@
 verbs = [
     {
-        "meaning": "to state /  to specify",
+        "meaning": "to state / to specify",
         "verb": "angeben",
         "präsens": "gibt an",
         "präteritum": "gab an",
@@ -49,18 +49,11 @@ verbs = [
         "perfekt": "ist ausgestorben"
     },
     {
-        "meaning": "to move out",
+        "meaning": "to move out / to undress",
         "verb": "ausziehen",
         "präsens": "zieht aus",
         "präteritum": "zog aus",
-        "perfekt": "ist ausgezogen"
-    },
-    {
-        "meaning": "to undress",
-        "verb": "ausziehen",
-        "präsens": "zieht aus",
-        "präteritum": "zog aus",
-        "perfekt": "hat ausgezogen"
+        "perfekt": "ist/hat ausgezogen"
     },
     {
         "meaning": "to bake",
